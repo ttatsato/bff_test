@@ -21,6 +21,9 @@
 import Vue from 'vue'
 
 export default Vue.extend({
+  asyncData({ $axios }): Promise<object | void> | object | void {
+    $axios.get('/bff/v1/log')
+  },
   methods: {
     ck() {
       this.$axios.get('/bff/v1/log')
