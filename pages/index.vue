@@ -3,6 +3,9 @@
     <div>
       <Logo />
       <h1 class="title">bff</h1>
+      <pre>
+        {{ data }}
+      </pre>
       <div class="links">
         <a
           target="_blank"
@@ -21,8 +24,11 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  asyncData({ $axios }): Promise<object | void> | object | void {
-    $axios.get('/bff/v1/log')
+  async asyncData({ $axios }): Promise<object | void> | object | void {
+    const s = await $axios.get('/bff/v1/log')
+    return {
+      data: s.data,
+    }
   },
   methods: {
     ck() {
