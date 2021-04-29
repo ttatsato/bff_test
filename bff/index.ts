@@ -1,5 +1,5 @@
 import Express from 'express'
-import { Log } from '@/types';
+import { Log } from '../types'
 const app: Express.Express = Express()
 app.use(Express.json())
 
