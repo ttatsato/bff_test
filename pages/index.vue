@@ -20,11 +20,11 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 
 export default Vue.extend({
-  async asyncData({ $axios }): Promise<object | void> | object | void {
+  async asyncData({ $axios }) {
     const s = await $axios.get('/bff/v1/log')
     return {
       data: s.data,
